@@ -1,6 +1,7 @@
 # 最简洁的使用Github-Pages
 利用vscode对markdown的强大支持，方便的管理md文件，并利用Github-Pages的jekyll对md的解析，配上域名，就可以有自己的博客站点了。
-
+> 以最简洁的方式使用Github Pages，不用安装 hexo, jekyll, hugo
+> 结合 vscode客户端 或者 githhub.dev网页端，再加上合理的管理目录，轻松写markdown, 生成静态博客网站。
 
 ## 文件管理问题
 1. 文件夹：时间戳-名称（注意不要有空格）
