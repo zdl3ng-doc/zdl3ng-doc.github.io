@@ -1,5 +1,5 @@
-# zdl3ng-doc.github
- - [999-my-notes](999-my-notes) 
- - [002-常用](002-常用) 
- - [001-idea](001-idea) 
- - [000-github-pages](000-github-pages) 
+# zdl3ng-doc.github.io
+  - [000-笔记](000-笔记)
+  - [001-常用](001-常用)
+  - [002-github-pages](002-github-pages)
+  - [003-idea](003-idea)

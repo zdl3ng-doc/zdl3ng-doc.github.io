@@ -1,4 +1,14 @@
-:: 执行命令: .\readme.bat . -r -b
+:: 使用说明:
+:: 运行此脚本以生成指定目录及其子目录中的 readme.md 文件。
+:: 参数:
+::   1. 目标目录路径 (可选，默认为当前目录)
+::   2. -r (可选，递归处理子目录)
+::   3. -b (可选，在最底层文件夹生成 readme.md 文件)
+::
+:: 示例:
+::   ./readme.sh . -r -b
+::   ./readme.sh /path/to/dir -r
+::   ./readme.sh /path/to/dir
 :: ===================================================================================================================
 @echo off
 chcp 65001 >nul
@@ -73,13 +83,13 @@ if "%has_subdirs%"=="true" (
         for %%F in ("!current_dir!") do set "current_folder_name=%%~nF"
         echo # !current_folder_name!
     )
-    for /f "delims=" %%D in ('dir /b /a:-d /o-n "!current_dir!\*.md"') do (
+    for /f "delims=" %%D in ('dir /b /a:-d /o:n "!current_dir!\*.md"') do (
         if /i not "%%D"=="readme.md" (
             set "mdfile_name=%%~nxD"
             echo  - [!mdfile_name!](%%D^) >> "!output_file!"
         )
     )
-    for /f "delims=" %%D in ('dir /b /a:d-h /o-n "!current_dir!"') do (
+    for /f "delims=" %%D in ('dir /b /a:d-h /o:n "!current_dir!"') do (
         set "folder_name=%%~nxD"
         echo  - [!folder_name!](%%D^) >> "!output_file!"
     )
@@ -92,7 +102,7 @@ if "%has_subdirs%"=="true" (
         for %%F in ("!current_dir!") do set "current_folder_name2=%%~nF"
         echo # !current_folder_name2!
     )
-    for /f "delims=" %%D in ('dir /b /a:-d /o-n "!current_dir!\*.md"') do (
+    for /f "delims=" %%D in ('dir /b /a:-d /o:n "!current_dir!\*.md"') do (
         if /i not "%%D"=="readme.md" (
             set "mdfile_name2=%%~nxD"
             echo  - [!mdfile_name2!](%%D^) >> "!output_file2!"
