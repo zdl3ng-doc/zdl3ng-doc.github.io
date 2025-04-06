@@ -71,6 +71,12 @@ if "%has_subdirs%"=="true" (
         for %%F in ("!current_dir!") do set "current_folder_name=%%~nF"
         echo # !current_folder_name!
     )
+    for /f "delims=" %%D in ('dir /b /a:-d /o-n "!current_dir!\*.md"') do (
+        if /i not "%%D"=="index.md" (
+            set "mdfile_name=%%~nxD"
+            echo  - [!mdfile_name!](%%D^) >> "!output_file!"
+        )
+    )
     for /f "delims=" %%D in ('dir /b /a:d-h /o-n "!current_dir!"') do (
         set "folder_name=%%~nxD"
         echo  - [!folder_name!](%%D^) >> "!output_file!"
@@ -86,8 +92,8 @@ if "%has_subdirs%"=="true" (
     )
     for /f "delims=" %%D in ('dir /b /a:-d /o-n "!current_dir!\*.md"') do (
         if /i not "%%D"=="index.md" (
-            set "mdfile_name=%%~nxD"
-            echo  - [!mdfile_name!](%%D^) >> "!output_file2!"
+            set "mdfile_name2=%%~nxD"
+            echo  - [!mdfile_name2!](%%D^) >> "!output_file2!"
         )
     )
     echo 已生成: "!output_file2!"
