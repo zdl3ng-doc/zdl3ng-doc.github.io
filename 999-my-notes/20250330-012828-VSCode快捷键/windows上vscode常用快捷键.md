@@ -1,4 +1,4 @@
-# vscode常用快捷键
+# windows上vscode常用快捷键
 
 ## windows
 - 替换：ctrl+h
