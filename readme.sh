@@ -38,13 +38,13 @@ generate_index() {
         for file in "$current_dir"/*.md; do
             if [ "$(basename "$file")" != "readme.md" ]; then
                 mdfile_name=$(basename "$file")
-                echo "  - [$mdfile_name]($mdfile_name)" >> "$output_file"
+                echo " - [$mdfile_name]($mdfile_name) " >> "$output_file"
             fi
         done
 
         for dir in "$current_dir"/*/; do
             folder_name=$(basename "$dir")
-            echo "  - [$folder_name](${folder_name})" >> "$output_file" # Ensure proper folder link
+            echo " - [$folder_name](${folder_name}) " >> "$output_file" # Ensure proper folder link
         done
 
         echo "已生成: $output_file"
@@ -60,7 +60,7 @@ generate_index() {
         for file in "$current_dir"/*.md; do
             if [ "$(basename "$file")" != "readme.md" ]; then
                 mdfile_name2=$(basename "$file")
-                echo "  - [$mdfile_name2]($mdfile_name2)" >> "$output_file2"
+                echo " - [$mdfile_name2]($mdfile_name2) " >> "$output_file2"
             fi
         done
 

@@ -80,7 +80,7 @@ if "%has_subdirs%"=="true" (
     set "output_file=!current_dir!\readme.md"
     > "!output_file!" (
         :: 获取当前文件夹名称
-        for %%F in ("!current_dir!") do set "current_folder_name=%%~nF"
+        for %%F in ("!current_dir!") do set "current_folder_name=%%~nxF"
         echo # !current_folder_name!
     )
     for /f "delims=" %%D in ('dir /b /a:-d /o:n "!current_dir!\*.md"') do (
@@ -99,7 +99,7 @@ if "%has_subdirs%"=="true" (
     set "output_file2=!current_dir!\readme.md"
     > "!output_file2!" (
         :: 获取当前文件夹名称
-        for %%F in ("!current_dir!") do set "current_folder_name2=%%~nF"
+        for %%F in ("!current_dir!") do set "current_folder_name2=%%~nxF"
         echo # !current_folder_name2!
     )
     for /f "delims=" %%D in ('dir /b /a:-d /o:n "!current_dir!\*.md"') do (
