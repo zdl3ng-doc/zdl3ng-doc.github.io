@@ -32,19 +32,19 @@ generate_index() {
         {
             # 获取当前文件夹名称
             current_folder_name=$(basename "$current_dir")
-            echo "# $current_folder_name"
+            echo -e "# $current_folder_name\r" # 添加 CRLF 换行符
         } > "$output_file"
 
         for file in "$current_dir"/*.md; do
             if [ "$(basename "$file")" != "readme.md" ]; then
                 mdfile_name=$(basename "$file")
-                echo " - [$mdfile_name]($mdfile_name) " >> "$output_file"
+                echo -e " - [$mdfile_name]($mdfile_name) \r" >> "$output_file" # 添加 CRLF 换行符
             fi
         done
 
         for dir in "$current_dir"/*/; do
             folder_name=$(basename "$dir")
-            echo " - [$folder_name](${folder_name}) " >> "$output_file" # Ensure proper folder link
+            echo -e " - [$folder_name](${folder_name}) \r" >> "$output_file" # 添加 CRLF 换行符
         done
 
         echo "已生成: $output_file"
@@ -54,13 +54,13 @@ generate_index() {
         {
             # 获取当前文件夹名称
             current_folder_name2=$(basename "$current_dir")
-            echo "# $current_folder_name2"
+            echo -e "# $current_folder_name2\r" # 添加 CRLF 换行符
         } > "$output_file2"
 
         for file in "$current_dir"/*.md; do
             if [ "$(basename "$file")" != "readme.md" ]; then
                 mdfile_name2=$(basename "$file")
-                echo " - [$mdfile_name2]($mdfile_name2) " >> "$output_file2"
+                echo -e " - [$mdfile_name2]($mdfile_name2) \r" >> "$output_file2" # 添加 CRLF 换行符
             fi
         done
 
