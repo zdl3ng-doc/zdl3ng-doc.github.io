@@ -83,12 +83,14 @@ if "%has_subdirs%"=="true" (
         for %%F in ("!current_dir!") do set "current_folder_name=%%~nxF"
         echo # !current_folder_name!
     )
+    :: 列出文件夹下的md文件
     for /f "delims=" %%D in ('dir /b /a:-d /o:n "!current_dir!\*.md"') do (
         if /i not "%%D"=="readme.md" (
             set "mdfile_name=%%~nxD"
             echo  - [!mdfile_name!](%%D^) >> "!output_file!"
         )
     )
+    :: 列出文件夹下的子文件夹
     for /f "delims=" %%D in ('dir /b /a:d-h /o:n "!current_dir!"') do (
         set "folder_name=%%~nxD"
         echo  - [!folder_name!](%%D^) >> "!output_file!"
